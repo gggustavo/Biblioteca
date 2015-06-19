@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Libros" EntityType="Model.Store.Libros" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Autores" EntityType="Model.Store.Autores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Editoriales" EntityType="Model.Store.Editoriales" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="LibroAutor" Association="Model.Store.LibroAutor">
+      <End Role="Libro" EntitySet="Libros" />
+      <End Role="Autor" EntitySet="Autores" />
+    </AssociationSet>
+    <AssociationSet Name="AutorEditorial" Association="Model.Store.AutorEditorial">
+      <End Role="Autor" EntitySet="Autores" />
+      <End Role="Editorial" EntitySet="Editoriales" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Libros">
+    <Key>
+      <PropertyRef Name="isbn" />
+    </Key>
+    <Property Name="isbn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titulo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Paginas" Type="int" Nullable="false" />
+    <Property Name="Precio" Type="int" Nullable="false" />
+    <Property Name="Autor_dni" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Autores">
+    <Key>
+      <PropertyRef Name="dni" />
+    </Key>
+    <Property Name="dni" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Editorial_Codigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Editoriales">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="LibroAutor">
+    <End Role="Libro" Type="Model.Store.Libros" Multiplicity="*" />
+    <End Role="Autor" Type="Model.Store.Autores" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Autor">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="Libro">
+        <PropertyRef Name="Autor_dni" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AutorEditorial">
+    <End Role="Autor" Type="Model.Store.Autores" Multiplicity="*" />
+    <End Role="Editorial" Type="Model.Store.Editoriales" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Editorial">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Autor">
+        <PropertyRef Name="Editorial_Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Libros" EntityType="Model.Libro" />
+          <EntitySet Name="Autores" EntityType="Model.Autor" />
+          <EntitySet Name="Editoriales" EntityType="Model.Editorial" />
+          <AssociationSet Name="LibroAutor" Association="Model.LibroAutor">
+            <End Role="Libro" EntitySet="Libros" />
+            <End Role="Autor" EntitySet="Autores" />
+          </AssociationSet>
+          <AssociationSet Name="AutorEditorial" Association="Model.AutorEditorial">
+            <End Role="Autor" EntitySet="Autores" />
+            <End Role="Editorial" EntitySet="Editoriales" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Libro">
+          <Key>
+            <PropertyRef Name="isbn" />
+          </Key>
+          <Property Name="isbn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titulo" Type="String" Nullable="false" />
+          <Property Name="Paginas" Type="Int32" Nullable="false" />
+          <Property Name="Precio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Autor" Relationship="Model.LibroAutor" FromRole="Libro" ToRole="Autor" />
+        </EntityType>
+        <EntityType Name="Autor">
+          <Key>
+            <PropertyRef Name="dni" />
+          </Key>
+          <Property Name="dni" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="Libro" Relationship="Model.LibroAutor" FromRole="Autor" ToRole="Libro" />
+          <NavigationProperty Name="Editorial" Relationship="Model.AutorEditorial" FromRole="Autor" ToRole="Editorial" />
+        </EntityType>
+        <EntityType Name="Editorial">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="Autor" Relationship="Model.AutorEditorial" FromRole="Editorial" ToRole="Autor" />
+        </EntityType>
+        <Association Name="LibroAutor">
+          <End Type="Model.Libro" Role="Libro" Multiplicity="*" />
+          <End Type="Model.Autor" Role="Autor" Multiplicity="1" />
+        </Association>
+        <Association Name="AutorEditorial">
+          <End Type="Model.Autor" Role="Autor" Multiplicity="*" />
+          <End Type="Model.Editorial" Role="Editorial" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="Libros">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Libro)">
+        <MappingFragment StoreEntitySet="Libros">
+          <ScalarProperty Name="isbn" ColumnName="isbn" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Paginas" ColumnName="Paginas" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Autores">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Autor)">
+        <MappingFragment StoreEntitySet="Autores">
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Editoriales">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Editorial)">
+        <MappingFragment StoreEntitySet="Editoriales">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="LibroAutor" TypeName="Model.LibroAutor" StoreEntitySet="Libros">
+      <EndProperty Name="Autor">
+        <ScalarProperty Name="dni" ColumnName="Autor_dni" />
+      </EndProperty>
+      <EndProperty Name="Libro">
+        <ScalarProperty Name="isbn" ColumnName="isbn" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AutorEditorial" TypeName="Model.AutorEditorial" StoreEntitySet="Autores">
+      <EndProperty Name="Editorial">
+        <ScalarProperty Name="Codigo" ColumnName="Editorial_Codigo" />
+      </EndProperty>
+      <EndProperty Name="Autor">
+        <ScalarProperty Name="dni" ColumnName="dni" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,15 @@
+D:\MisDocumentos\Visual Studio 2010\Projects\Libros\Modelo\bin\Debug\Modelo.dll.config
+D:\MisDocumentos\Visual Studio 2010\Projects\Libros\Modelo\bin\Debug\Modelo.dll
+D:\MisDocumentos\Visual Studio 2010\Projects\Libros\Modelo\bin\Debug\Modelo.pdb
+D:\MisDocumentos\Visual Studio 2010\Projects\Libros\Modelo\obj\Debug\Modelo.dll
+D:\MisDocumentos\Visual Studio 2010\Projects\Libros\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Navegador\Downloads\Libros\Modelo\bin\Debug\Modelo.dll.config
+C:\Users\Navegador\Downloads\Libros\Modelo\bin\Debug\Modelo.dll
+C:\Users\Navegador\Downloads\Libros\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Navegador\Downloads\Libros\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+C:\Users\Navegador\Downloads\Libros\Modelo\obj\Debug\Modelo.dll
+C:\Users\Navegador\Downloads\Libros\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Navegador\Downloads\Libros\Modelo\bin\Debug\EntityFramework.dll
+C:\Users\Navegador\Downloads\Libros\Modelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Navegador\Downloads\Libros\Modelo\bin\Debug\EntityFramework.xml
+C:\Users\Navegador\Downloads\Libros\Modelo\bin\Debug\EntityFramework.SqlServer.xml

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="ModeloContainer">
+    <EntitySetMapping Name="Libros">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.Libro)">
+        <MappingFragment StoreEntitySet="Libros">
+          <ScalarProperty Name="isbn" ColumnName="isbn" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Paginas" ColumnName="Paginas" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Autores">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.Autor)">
+        <MappingFragment StoreEntitySet="Autores">
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Editoriales">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.Editorial)">
+        <MappingFragment StoreEntitySet="Editoriales">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AutorEditorial" TypeName="Modelo.AutorEditorial" StoreEntitySet="Autores">
+      <EndProperty Name="Editorial">
+        <ScalarProperty Name="Codigo" ColumnName="Editorial_Codigo" />
+      </EndProperty>
+      <EndProperty Name="Autor">
+        <ScalarProperty Name="dni" ColumnName="dni" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LibroAutor" TypeName="Modelo.LibroAutor" StoreEntitySet="Libros">
+      <EndProperty Name="Autor">
+        <ScalarProperty Name="dni" ColumnName="Autor_dni" />
+      </EndProperty>
+      <EndProperty Name="Libro">
+        <ScalarProperty Name="isbn" ColumnName="isbn" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

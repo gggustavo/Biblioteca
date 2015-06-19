@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Libros" EntityType="Model.Libro" />
+    <EntitySet Name="Autores" EntityType="Model.Autor" />
+    <EntitySet Name="Editoriales" EntityType="Model.Editorial" />
+    <AssociationSet Name="LibroAutor" Association="Model.LibroAutor">
+      <End Role="Libro" EntitySet="Libros" />
+      <End Role="Autor" EntitySet="Autores" />
+    </AssociationSet>
+    <AssociationSet Name="AutorEditorial" Association="Model.AutorEditorial">
+      <End Role="Autor" EntitySet="Autores" />
+      <End Role="Editorial" EntitySet="Editoriales" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Libro">
+    <Key>
+      <PropertyRef Name="isbn" />
+    </Key>
+    <Property Name="isbn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titulo" Type="String" Nullable="false" />
+    <Property Name="Paginas" Type="Int32" Nullable="false" />
+    <Property Name="Precio" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Autor" Relationship="Model.LibroAutor" FromRole="Libro" ToRole="Autor" />
+  </EntityType>
+  <EntityType Name="Autor">
+    <Key>
+      <PropertyRef Name="dni" />
+    </Key>
+    <Property Name="dni" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <NavigationProperty Name="Libro" Relationship="Model.LibroAutor" FromRole="Autor" ToRole="Libro" />
+    <NavigationProperty Name="Editorial" Relationship="Model.AutorEditorial" FromRole="Autor" ToRole="Editorial" />
+  </EntityType>
+  <EntityType Name="Editorial">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <NavigationProperty Name="Autor" Relationship="Model.AutorEditorial" FromRole="Editorial" ToRole="Autor" />
+  </EntityType>
+  <Association Name="LibroAutor">
+    <End Type="Model.Libro" Role="Libro" Multiplicity="*" />
+    <End Type="Model.Autor" Role="Autor" Multiplicity="1" />
+  </Association>
+  <Association Name="AutorEditorial">
+    <End Type="Model.Autor" Role="Autor" Multiplicity="*" />
+    <End Type="Model.Editorial" Role="Editorial" Multiplicity="1" />
+  </Association>
+</Schema>

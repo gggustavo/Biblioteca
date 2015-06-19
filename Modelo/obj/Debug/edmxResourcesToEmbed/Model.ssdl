@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Libros" EntityType="Model.Store.Libros" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Autores" EntityType="Model.Store.Autores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Editoriales" EntityType="Model.Store.Editoriales" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="LibroAutor" Association="Model.Store.LibroAutor">
+      <End Role="Libro" EntitySet="Libros" />
+      <End Role="Autor" EntitySet="Autores" />
+    </AssociationSet>
+    <AssociationSet Name="AutorEditorial" Association="Model.Store.AutorEditorial">
+      <End Role="Autor" EntitySet="Autores" />
+      <End Role="Editorial" EntitySet="Editoriales" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Libros">
+    <Key>
+      <PropertyRef Name="isbn" />
+    </Key>
+    <Property Name="isbn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titulo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Paginas" Type="int" Nullable="false" />
+    <Property Name="Precio" Type="int" Nullable="false" />
+    <Property Name="Autor_dni" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Autores">
+    <Key>
+      <PropertyRef Name="dni" />
+    </Key>
+    <Property Name="dni" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Editorial_Codigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Editoriales">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="LibroAutor">
+    <End Role="Libro" Type="Model.Store.Libros" Multiplicity="*" />
+    <End Role="Autor" Type="Model.Store.Autores" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Autor">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="Libro">
+        <PropertyRef Name="Autor_dni" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AutorEditorial">
+    <End Role="Autor" Type="Model.Store.Autores" Multiplicity="*" />
+    <End Role="Editorial" Type="Model.Store.Editoriales" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Editorial">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Autor">
+        <PropertyRef Name="Editorial_Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
