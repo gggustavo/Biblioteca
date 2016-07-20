@@ -7,34 +7,47 @@ namespace Controladora
 {
     public class Editorial
     {
-        Modelo.ModelContainer container;
 
         public Editorial()
         {
-            container = Modelo.ModelContainer.GetInstance();
         }
 
         public void Add(Modelo.Editorial entity)
         {
-            container.Editoriales.Add(entity);
-            container.SaveChanges();        
+            using (var context = new Modelo.Context())
+            {
+                context.Editoriales.Add(entity);
+                context.SaveChanges();   
+            }                 
         }
 
         public void Remove(Modelo.Editorial entity)
         {
-            container.Editoriales.Remove(entity);
-            container.SaveChanges();    
+            using (var context = new Modelo.Context())
+            {
+                var value = context.Editoriales.Where(_ => _.IdEditorial == entity.IdEditorial).FirstOrDefault();
+                context.Editoriales.Remove(value);
+                context.SaveChanges();  
+            }
+              
         }
 
         public void Update(Modelo.Editorial entity)
         {
-            container.Entry(entity).State = System.Data.Entity.EntityState.Modified;
-            container.SaveChanges();
+            using (var context = new Modelo.Context())
+            {
+                context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
+            
         }
 
         public List<Modelo.Editorial> GetAll()
         {
-            return container.Editoriales.ToList();
+            using (var context = new Modelo.Context()) 
+            {
+                return context.Editoriales.ToList();
+            }           
         }
 
     }

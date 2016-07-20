@@ -82,7 +82,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="App.Config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Modelo.Editorial.datasource" />
     <None Include="Properties\Settings.settings">

@@ -40,7 +40,7 @@
             this.Aceptar = new System.Windows.Forms.Button();
             this.Cancelar = new System.Windows.Forms.Button();
             this.modificar = new System.Windows.Forms.Button();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEditorialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.informacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editorialBindingSource)).BeginInit();
@@ -83,7 +83,7 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigoDataGridViewTextBoxColumn,
+            this.idEditorialDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.editorialBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 165);
@@ -99,7 +99,6 @@
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(62, 47);
             this.Agregar.TabIndex = 2;
-            this.Agregar.Text = "Agregar";
             this.Agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Agregar.UseVisualStyleBackColor = true;
             this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
@@ -111,7 +110,6 @@
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Size = new System.Drawing.Size(62, 47);
             this.Eliminar.TabIndex = 3;
-            this.Eliminar.Text = "Eliminar";
             this.Eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Eliminar.UseVisualStyleBackColor = true;
             this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
@@ -123,7 +121,6 @@
             this.Aceptar.Name = "Aceptar";
             this.Aceptar.Size = new System.Drawing.Size(62, 47);
             this.Aceptar.TabIndex = 5;
-            this.Aceptar.Text = "Aceptar";
             this.Aceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Aceptar.UseVisualStyleBackColor = true;
             this.Aceptar.Click += new System.EventHandler(this.Aceptar_Click);
@@ -135,7 +132,6 @@
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(62, 47);
             this.Cancelar.TabIndex = 6;
-            this.Cancelar.Text = "Cancelar";
             this.Cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Cancelar.UseVisualStyleBackColor = true;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
@@ -147,29 +143,28 @@
             this.modificar.Name = "modificar";
             this.modificar.Size = new System.Drawing.Size(62, 47);
             this.modificar.TabIndex = 7;
-            this.modificar.Text = "Modificar";
             this.modificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.modificar.UseVisualStyleBackColor = true;
             this.modificar.Click += new System.EventHandler(this.Modificar_Click);
             // 
-            // codigoDataGridViewTextBoxColumn
+            // idEditorialDataGridViewTextBoxColumn
             // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
-            this.codigoDataGridViewTextBoxColumn.Width = 80;
+            this.idEditorialDataGridViewTextBoxColumn.DataPropertyName = "IdEditorial";
+            this.idEditorialDataGridViewTextBoxColumn.HeaderText = "IdEditorial";
+            this.idEditorialDataGridViewTextBoxColumn.Name = "idEditorialDataGridViewTextBoxColumn";
             // 
             // nombreDataGridViewTextBoxColumn
             // 
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.Width = 250;
+            this.nombreDataGridViewTextBoxColumn.Width = 230;
             // 
             // Editorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(395, 338);
             this.Controls.Add(this.modificar);
             this.Controls.Add(this.Cancelar);
@@ -180,6 +175,7 @@
             this.Controls.Add(this.informacion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Editorial";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editorial";
             this.informacion.ResumeLayout(false);
             this.informacion.PerformLayout();
@@ -202,6 +198,7 @@
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.Button modificar;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEditorialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
     }
 }

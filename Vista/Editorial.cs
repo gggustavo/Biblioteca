@@ -45,7 +45,7 @@ namespace Vista
             try
             {
                 objetoeditorial.Nombre = this.Nombre.Text;
-                if (objetoeditorial.Codigo != 0)
+                if (objetoeditorial.IdEditorial != 0)
                 {
                     ctreditorial.Update(objetoeditorial);
                 }
