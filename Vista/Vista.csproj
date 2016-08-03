@@ -92,9 +92,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="App.config" />
-    <None Include="bin\Debug\Vista.exe.config" />
-    <None Include="bin\Debug\Vista.vshost.exe.config" />
-    <None Include="bin\Debug\Vista.vshost.exe.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Modelo.Editorial.datasource" />
     <None Include="Properties\Settings.settings">
@@ -116,19 +113,6 @@
       <Project>{52D91572-3C44-4644-A676-3D3966FD88C2}</Project>
       <Name>Modelo</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\Controladora.dll" />
-    <Content Include="bin\Debug\Controladora.pdb" />
-    <Content Include="bin\Debug\EntityFramework.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\Debug\EntityFramework.xml" />
-    <Content Include="bin\Debug\Modelo.dll" />
-    <Content Include="bin\Debug\Modelo.pdb" />
-    <Content Include="bin\Debug\Vista.exe" />
-    <Content Include="bin\Debug\Vista.pdb" />
-    <Content Include="bin\Debug\Vista.vshost.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
