@@ -11,8 +11,12 @@ namespace Modelo
     public class Context : DbContext
     {
         public Context()
-            : base("name=ModeloContainer")
+            : base("name=Default")
         {
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
+
+            Database.SetInitializer<Context>(new ContextInitializer());
         }
 
         
@@ -28,6 +32,8 @@ namespace Modelo
             modelBuilder.Entity<Libro>().HasRequired(_ => _.Autor).WithMany(_ => _.Libro);
             modelBuilder.Entity<Autor>().HasRequired(_ => _.Editorial).WithMany(_ => _.Autor);
         }
+
+        
 
         public DbSet<Libro> Libros { get; set; }
         public DbSet<Autor> Autores { get; set; }

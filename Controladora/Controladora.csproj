@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autor.cs" />
     <Compile Include="Editorial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

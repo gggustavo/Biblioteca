@@ -23,7 +23,8 @@ namespace Vista
 
         private void autorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var autor = new Autor();
+            autor.ShowDialog();
         }
 
         private void editorialToolStripMenuItem_Click(object sender, EventArgs e)

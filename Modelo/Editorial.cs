@@ -15,8 +15,15 @@ namespace Modelo
         }
         
         public int IdEditorial { get; set; }
+
         public string Nombre { get; set; }
     
         public ICollection<Autor> Autor { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
     }
 }

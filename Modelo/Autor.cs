@@ -16,6 +16,9 @@ namespace Modelo
         public string Nombre { get; set; }
     
         public ICollection<Libro> Libro { get; set; }
+
+        public int IdEditorial { get; set; }
         public Editorial Editorial { get; set; }
+
     }
 }

@@ -88,7 +88,7 @@
             this.dataGridView1.DataSource = this.editorialBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 165);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(374, 161);
+            this.dataGridView1.Size = new System.Drawing.Size(374, 254);
             this.dataGridView1.TabIndex = 1;
             // 
             // Agregar
@@ -150,22 +150,23 @@
             // idEditorialDataGridViewTextBoxColumn
             // 
             this.idEditorialDataGridViewTextBoxColumn.DataPropertyName = "IdEditorial";
-            this.idEditorialDataGridViewTextBoxColumn.HeaderText = "IdEditorial";
+            this.idEditorialDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idEditorialDataGridViewTextBoxColumn.Name = "idEditorialDataGridViewTextBoxColumn";
+            this.idEditorialDataGridViewTextBoxColumn.Width = 50;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.Width = 230;
+            this.nombreDataGridViewTextBoxColumn.Width = 280;
             // 
             // Editorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(395, 338);
+            this.ClientSize = new System.Drawing.Size(392, 431);
             this.Controls.Add(this.modificar);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.Aceptar);
