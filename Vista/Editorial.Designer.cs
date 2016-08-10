@@ -198,7 +198,6 @@
         private System.Windows.Forms.Button Aceptar;
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.Button modificar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEditorialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
     }

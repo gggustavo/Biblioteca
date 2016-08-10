@@ -11,8 +11,8 @@ namespace Vista
 {
     public partial class Editorial : Form
     {
-        Modelo.Editorial objetoeditorial;
-        Controladora.Editorial ctreditorial = new Controladora.Editorial();
+        Modelo.Editorial _editorial;
+        Controladora.Editorial _ctrEditorial = new Controladora.Editorial();
 
         public Editorial()
         {
@@ -24,8 +24,7 @@ namespace Vista
             this.Aceptar.Enabled = false;
             this.Cancelar.Enabled = false;
             this.informacion.Enabled = false;
-            this.editorialBindingSource.DataSource = ctreditorial.GetAll();
-
+            this.editorialBindingSource.DataSource = _ctrEditorial.GetAll();
         }
 
         private void Agregar_Click(object sender, EventArgs e)
@@ -37,24 +36,25 @@ namespace Vista
             this.Eliminar.Enabled = false;
             this.informacion.Enabled = true;
             this.Nombre.Text = string.Empty;
-            objetoeditorial = new Modelo.Editorial();
+
+            _editorial = new Modelo.Editorial();
         }
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
             try
             {
-                objetoeditorial.Nombre = this.Nombre.Text;
-                if (objetoeditorial.IdEditorial != 0)
+                _editorial.Nombre = this.Nombre.Text;
+                if (_editorial.IdEditorial != 0)
                 {
-                    ctreditorial.Update(objetoeditorial);
+                    _ctrEditorial.Update(_editorial);
                 }
                 else
                 {
-                    ctreditorial.Add(objetoeditorial);
+                    _ctrEditorial.Add(_editorial);
                 }                
                 this.ShowMessage();
-                this.editorialBindingSource.DataSource = ctreditorial.GetAll();
+                this.editorialBindingSource.DataSource = _ctrEditorial.GetAll();
                 
             }
             catch (Exception ex)
@@ -88,9 +88,9 @@ namespace Vista
         {
             if (editorialBindingSource.Current != null)
             {
-                ctreditorial.Remove((Modelo.Editorial)this.editorialBindingSource.Current);
+                _ctrEditorial.Remove((Modelo.Editorial)this.editorialBindingSource.Current);
                 this.ShowMessage();
-                this.editorialBindingSource.DataSource = ctreditorial.GetAll();
+                this.editorialBindingSource.DataSource = _ctrEditorial.GetAll();
             }
         }
 
@@ -104,8 +104,8 @@ namespace Vista
                 this.Agregar.Enabled = false;
                 this.Eliminar.Enabled = false;
                 this.informacion.Enabled = true;
-                objetoeditorial = (Modelo.Editorial)(this.editorialBindingSource.Current);
-                this.Nombre.Text = objetoeditorial.Nombre;
+                _editorial = (Modelo.Editorial)(this.editorialBindingSource.Current);
+                this.Nombre.Text = _editorial.Nombre;
             }
             
         }

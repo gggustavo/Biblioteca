@@ -10,8 +10,8 @@ namespace Modelo
 {
     public class Context : DbContext
     {
-        public Context()
-            : base("name=Default")
+        
+        public Context() : base("name=Default")
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
@@ -27,8 +27,7 @@ namespace Modelo
             modelBuilder.Entity<Editorial>().HasKey(_ => _.IdEditorial);
             modelBuilder.Entity<Autor>().HasKey(_ => _.IdAutor);
             modelBuilder.Entity<Libro>().HasKey(_ => _.IdLibro);
-
-            
+          
             modelBuilder.Entity<Libro>().HasRequired(_ => _.Autor).WithMany(_ => _.Libro);
             modelBuilder.Entity<Autor>().HasRequired(_ => _.Editorial).WithMany(_ => _.Autor);
         }
@@ -38,5 +37,7 @@ namespace Modelo
         public DbSet<Libro> Libros { get; set; }
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Editorial> Editoriales { get; set; }
+
+
     }
 }

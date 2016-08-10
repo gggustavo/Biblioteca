@@ -65,6 +65,12 @@
     <Compile Include="Editorial.Designer.cs">
       <DependentUpon>Editorial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Libro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Libro.Designer.cs">
+      <DependentUpon>Libro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editorial.resx">
       <DependentUpon>Editorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Libro.resx">
+      <DependentUpon>Libro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -94,6 +103,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Modelo.Editorial.datasource" />
+    <None Include="Properties\DataSources\Modelo.Libro.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -18,7 +18,8 @@ namespace Vista
 
         private void librosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var libro = new Libro();
+            libro.ShowDialog();
         }
 
         private void autorToolStripMenuItem_Click(object sender, EventArgs e)

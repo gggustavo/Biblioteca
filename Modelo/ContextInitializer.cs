@@ -8,10 +8,14 @@ namespace Modelo
 {
     public class ContextInitializer : DropCreateDatabaseIfModelChanges<Context>
     {
+
+        //Enable-Migrations
+        //Run Admin Visual Studio.
         protected override void Seed(Context context)
         {
             CargarEditoriales(context);
             CargarAutores(context);
+            CargarLibros(context);
 
             base.Seed(context);
         }
@@ -136,6 +140,72 @@ namespace Modelo
             context.Autores.AddRange(autores);
 
             context.SaveChanges();
+        }
+
+        private void CargarLibros(Context context)
+        {
+            var libros = new List<Libro>();
+
+            var libro = new Libro
+            {
+                isbn = "9789875666474",
+                Titulo = "Collected fictions",
+                Paginas = 220,
+                IdAutor = 1,
+                Precio = 150
+            };
+
+            libros.Add(libro);
+
+            libro = new Libro
+            {
+                isbn = "9789875666473",
+                Titulo = "El jardín de senderos que se bifurcan",
+                Paginas = 222,
+                IdAutor = 2,
+                Precio = 150
+            };
+
+            libros.Add(libro);
+
+            libro = new Libro
+            {
+                isbn = "9789875666470",
+                Titulo = "Funes el memorioso",
+                Paginas = 222,
+                IdAutor = 2,
+                Precio = 150
+            };
+
+            libros.Add(libro);
+
+            libro = new Libro
+            {
+                isbn = "9789875666475",
+                Titulo = "La lotería en Babilonia",
+                Paginas = 222,
+                IdAutor = 2,
+                Precio = 150
+            };
+
+            libros.Add(libro);
+
+
+            libro = new Libro
+            {
+                isbn = "9789875666477",
+                Titulo = "La muerte y la brújula",
+                Paginas = 222,
+                IdAutor = 2,
+                Precio = 150
+            };
+
+            libros.Add(libro);
+
+
+            context.Libros.AddRange(libros);
+            context.SaveChanges();
+
         }
     }
 }

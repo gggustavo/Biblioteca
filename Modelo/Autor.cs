@@ -20,5 +20,9 @@ namespace Modelo
         public int IdEditorial { get; set; }
         public Editorial Editorial { get; set; }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

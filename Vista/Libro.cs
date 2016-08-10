@@ -9,26 +9,27 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class Autor : Form
+    public partial class Libro : Form
     {
-        Modelo.Autor _autor;
-        Controladora.Editorial _ctrEditorial = new Controladora.Editorial();
         Controladora.Autor _ctrAutor = new Controladora.Autor();
+        Controladora.Libro _ctrLibro = new Controladora.Libro();
 
-        public Autor()
+        Modelo.Libro _libro;
+
+        public Libro()
         {
             InitializeComponent();
         }
 
         protected override void OnLoad(EventArgs e)
         {
-            base.OnLoad(e);
-
             this.Aceptar.Enabled = false;
             this.Cancelar.Enabled = false;
-            this.informacion.Enabled = false;
-            this.editorialBindingSource.DataSource = _ctrEditorial.GetAll();
+            this.informacion.Enabled = false;            
             this.autorBindingSource.DataSource = _ctrAutor.GetAll();
+            this.libroBindingSource.DataSource = _ctrLibro.GetAll();
+
+            base.OnLoad(e);
         }
 
         private void Agregar_Click(object sender, EventArgs e)
@@ -39,18 +40,21 @@ namespace Vista
             this.Agregar.Enabled = false;
             this.Eliminar.Enabled = false;
             this.informacion.Enabled = true;
-            this.Nombre.Text = string.Empty;
+            this.Titulo.Text = string.Empty;
+            this.isbn.Text = string.Empty;
+            this.paginas.Text = string.Empty;
+            this.precio.Text = string.Empty;
 
-            _autor = new Modelo.Autor();
+            _libro = new Modelo.Libro();
         }
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
-            if (autorBindingSource.Current != null)
+            if (libroBindingSource.Current != null)
             {
-                _ctrAutor.Remove((Modelo.Autor)this.autorBindingSource.Current);
+                _ctrLibro.Remove((Modelo.Libro)this.libroBindingSource.Current);
                 this.ShowMessage();
-                this.autorBindingSource.DataSource = _ctrAutor.GetAll();
+                this.libroBindingSource.DataSource = _ctrLibro.GetAll();
             }
         }
 
@@ -61,7 +65,7 @@ namespace Vista
 
         private void modificar_Click(object sender, EventArgs e)
         {
-            if (this.autorBindingSource.Current != null)
+            if (this.libroBindingSource.Current != null)
             {
                 this.Aceptar.Enabled = true;
                 this.modificar.Enabled = false;
@@ -69,8 +73,12 @@ namespace Vista
                 this.Agregar.Enabled = false;
                 this.Eliminar.Enabled = false;
                 this.informacion.Enabled = true;
-                _autor = (Modelo.Autor)(this.autorBindingSource.Current);
-                this.Nombre.Text = _autor.Nombre;
+                _libro = (Modelo.Libro)(this.libroBindingSource.Current);
+
+                this.Titulo.Text = _libro.Titulo;
+                this.isbn.Text = _libro.isbn;
+                this.paginas.Text = _libro.Paginas.ToString();
+                this.precio.Text = _libro.Precio.ToString();
             }
         }
 
@@ -78,18 +86,23 @@ namespace Vista
         {
             try
             {
-                _autor.Nombre = this.Nombre.Text;
-                _autor.IdEditorial = ((Modelo.Editorial)editorialBindingSource.Current).IdEditorial;
-                if (_autor.IdAutor != 0)
+                _libro.Titulo = this.Titulo.Text;
+                _libro.isbn = this.isbn.Text;
+                _libro.Paginas = Convert.ToInt32(this.paginas.Text);
+                _libro.Precio = Convert.ToInt32(this.precio.Text);
+
+                _libro.IdAutor = ((Modelo.Autor)autorBindingSource.Current).IdAutor;
+
+                if (_libro.IdLibro != 0)
                 {
-                    _ctrAutor.Update(_autor);
+                    _ctrLibro.Update(_libro);
                 }
                 else
                 {
-                    _ctrAutor.Add(_autor);
+                    _ctrLibro.Add(_libro);
                 }
                 this.ShowMessage();
-                this.autorBindingSource.DataSource = _ctrAutor.GetAll();
+                this.libroBindingSource.DataSource = _ctrLibro.GetAll();
 
             }
             catch (Exception ex)
@@ -104,7 +117,11 @@ namespace Vista
                 this.Eliminar.Enabled = true;
                 this.modificar.Enabled = true;
                 this.informacion.Enabled = false;
-                this.Nombre.Text = string.Empty;
+                this.Titulo.Text = string.Empty;
+                this.isbn.Text = string.Empty;
+                this.paginas.Text = string.Empty;
+                this.precio.Text = string.Empty;
+
             }
         }
 
@@ -116,7 +133,10 @@ namespace Vista
             this.Eliminar.Enabled = true;
             this.modificar.Enabled = true;
             this.informacion.Enabled = false;
-            this.Nombre.Text = string.Empty;
+            this.Titulo.Text = string.Empty;
+            this.isbn.Text = string.Empty;
+            this.paginas.Text = string.Empty;
+            this.precio.Text = string.Empty;
         }
     }
 }
