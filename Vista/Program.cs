@@ -15,6 +15,7 @@ namespace Vista
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Modelo.SingletonContext.CreateInstance();
             Application.Run(new Principal());
         }
     }

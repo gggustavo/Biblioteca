@@ -5,7 +5,6 @@ using System.Text;
 
 namespace Modelo
 {
-   
    public class Libro
     {
         public int IdLibro { get; set; }

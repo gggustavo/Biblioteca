@@ -27,9 +27,9 @@ namespace Modelo
             modelBuilder.Entity<Editorial>().HasKey(_ => _.IdEditorial);
             modelBuilder.Entity<Autor>().HasKey(_ => _.IdAutor);
             modelBuilder.Entity<Libro>().HasKey(_ => _.IdLibro);
-          
-            modelBuilder.Entity<Libro>().HasRequired(_ => _.Autor).WithMany(_ => _.Libro);
-            modelBuilder.Entity<Autor>().HasRequired(_ => _.Editorial).WithMany(_ => _.Autor);
+
+            modelBuilder.Entity<Libro>().HasRequired(_ => _.Autor);
+            modelBuilder.Entity<Autor>().HasRequired(_ => _.Editorial);
         }
 
         

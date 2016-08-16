@@ -37,3 +37,25 @@ C:\Users\Navegador\Desktop\b\Vista\obj\x86\Debug\Vista.csproj.GenerateResource.C
 C:\Users\Navegador\Desktop\b\Vista\obj\x86\Debug\Vista.exe
 C:\Users\Navegador\Desktop\b\Vista\obj\x86\Debug\Vista.pdb
 C:\Users\Navegador\Desktop\b\Vista\obj\x86\Debug\Vista.Libro.resources
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\Vista.exe.config
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\obj\x86\Debug\Vista.exe
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\obj\x86\Debug\Vista.pdb
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\Vista.exe
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\Vista.pdb
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\Controladora.dll
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\EntityFramework.dll
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\Modelo.dll
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\Controladora.pdb
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\Modelo.pdb
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\EntityFramework.xml
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\obj\x86\Debug\Vista.csprojResolveAssemblyReference.cache
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\obj\x86\Debug\Vista.Autor.resources
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\obj\x86\Debug\Vista.Editorial.resources
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\obj\x86\Debug\Vista.Libro.resources
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\obj\x86\Debug\Vista.Principal.resources
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\obj\x86\Debug\Vista.Properties.Resources.resources
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\obj\x86\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\SimpleInjector.dll
+C:\Users\Navegador\Desktop\Nueva carpeta\Vista\bin\Debug\SimpleInjector.xml
