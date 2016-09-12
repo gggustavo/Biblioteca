@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Modelo;
 
 namespace Vista
 {
@@ -7,6 +8,7 @@ namespace Vista
     {
         private readonly Controladora.Autor _ctrAutor = new Controladora.Autor();
         private readonly Controladora.Libro _ctrLibro = new Controladora.Libro();
+        private readonly Controladora.Prestamo _ctrPrestamo = new Controladora.Prestamo();
 
         private Modelo.Libro _libro;
 
@@ -51,7 +53,7 @@ namespace Vista
             libroBindingSource.DataSource = _ctrLibro.GetAll();
         }
 
-        private void ShowMessage()
+        private static void ShowMessage()
         {
             MessageBox.Show(@"Se ejecuto correctamente", @"Informacion", MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
@@ -66,6 +68,7 @@ namespace Vista
             Cancelar.Enabled = true;
             Agregar.Enabled = false;
             Eliminar.Enabled = false;
+            prestar.Enabled = false;
             informacion.Enabled = true;
             _libro = (Modelo.Libro) libroBindingSource.Current;
 
@@ -109,6 +112,7 @@ namespace Vista
                 Eliminar.Enabled = true;
                 modificar.Enabled = true;
                 informacion.Enabled = false;
+                prestar.Enabled = true;
                 Titulo.Text = string.Empty;
                 isbn.Text = string.Empty;
                 paginas.Text = string.Empty;
@@ -124,10 +128,26 @@ namespace Vista
             Eliminar.Enabled = true;
             modificar.Enabled = true;
             informacion.Enabled = false;
+            prestar.Enabled = true;
             Titulo.Text = string.Empty;
             isbn.Text = string.Empty;
             paginas.Text = string.Empty;
             precio.Text = string.Empty;
+        }
+
+        private void prestar_Click(object sender, EventArgs e)
+        {
+            // Validate before status Books
+            if (libroBindingSource.Current == null) return;
+
+            var prestamo = new Prestamo
+            {
+                Libro = (Modelo.Libro) libroBindingSource.Current,
+                Estado = true
+            };
+
+            _ctrPrestamo.Add(prestamo);
+            ShowMessage();
         }
     }
 }

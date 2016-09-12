@@ -57,7 +57,12 @@
     <Compile Include="Migrations\201608092347436_InitialCreate.Designer.cs">
       <DependentUpon>201608092347436_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609121531541_AddPrestamo.cs" />
+    <Compile Include="Migrations\201609121531541_AddPrestamo.Designer.cs">
+      <DependentUpon>201609121531541_AddPrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Prestamo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Autor.cs" />
     <Compile Include="Editorial.cs" />
@@ -75,6 +80,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608092347436_InitialCreate.resx">
       <DependentUpon>201608092347436_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609121531541_AddPrestamo.resx">
+      <DependentUpon>201609121531541_AddPrestamo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -50,6 +50,7 @@
     <Compile Include="Libro.cs" />
     <Compile Include="Autor.cs" />
     <Compile Include="Editorial.cs" />
+    <Compile Include="Prestamo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

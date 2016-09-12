@@ -26,3 +26,4 @@ C:\Users\usuario\Source\Repos\Biblioteca\Modelo\obj\Debug\Modelo.Migrations.Init
 C:\Users\usuario\Source\Repos\Biblioteca\Modelo\obj\Debug\Modelo.csproj.GenerateResource.Cache
 C:\Users\usuario\Source\Repos\Biblioteca\Modelo\obj\Debug\Modelo.dll
 C:\Users\usuario\Source\Repos\Biblioteca\Modelo\obj\Debug\Modelo.pdb
+C:\Users\usuario\Source\Repos\Biblioteca\Modelo\obj\Debug\Modelo.Migrations.AddPrestamo.resources
