@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
 
 namespace Modelo
 {
     public class ContextInitializer : DropCreateDatabaseIfModelChanges<Context>
     {
-
         //Enable-Migrations
         //Run Admin Visual Studio.
         protected override void Seed(Context context)
@@ -77,7 +73,7 @@ namespace Modelo
         }
 
 
-        private void CargarAutores(Context context) 
+        private void CargarAutores(Context context)
         {
             var autores = new List<Autor>();
 
@@ -205,7 +201,6 @@ namespace Modelo
 
             context.Libros.AddRange(libros);
             context.SaveChanges();
-
         }
     }
 }

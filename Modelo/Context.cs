@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
 
 namespace Modelo
 {
     public class Context : DbContext
     {
-        
         public Context() : base("name=Default")
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
 
-            Database.SetInitializer<Context>(new ContextInitializer());
+            Database.SetInitializer(new ContextInitializer());
         }
 
-        
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
@@ -32,12 +26,9 @@ namespace Modelo
             modelBuilder.Entity<Autor>().HasRequired(_ => _.Editorial);
         }
 
-        
 
         public DbSet<Libro> Libros { get; set; }
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Editorial> Editoriales { get; set; }
-
-
     }
 }

@@ -1,41 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Vista
 {
     public partial class Editorial : Form
     {
-        Modelo.Editorial _editorial;
-        Controladora.Editorial _ctrEditorial = new Controladora.Editorial();
+        private Modelo.Editorial _editorial;
+        private readonly Controladora.Editorial _ctrEditorial = new Controladora.Editorial();
 
         public Editorial()
         {
             InitializeComponent();
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            this.Aceptar.Enabled = false;
-            this.Cancelar.Enabled = false;
-            this.informacion.Enabled = false;
-            this.editorialBindingSource.DataSource = _ctrEditorial.GetAll();
+            Aceptar.Enabled = false;
+            Cancelar.Enabled = false;
+            informacion.Enabled = false;
+            editorialBindingSource.DataSource = _ctrEditorial.GetAll();
         }
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            this.Aceptar.Enabled = true;
-            this.Cancelar.Enabled = true;
-            this.modificar.Enabled = false;
-            this.Agregar.Enabled = false;
-            this.Eliminar.Enabled = false;
-            this.informacion.Enabled = true;
-            this.Nombre.Text = string.Empty;
+            Aceptar.Enabled = true;
+            Cancelar.Enabled = true;
+            modificar.Enabled = false;
+            Agregar.Enabled = false;
+            Eliminar.Enabled = false;
+            informacion.Enabled = true;
+            Nombre.Text = string.Empty;
 
             _editorial = new Modelo.Editorial();
         }
@@ -44,7 +39,7 @@ namespace Vista
         {
             try
             {
-                _editorial.Nombre = this.Nombre.Text;
+                _editorial.Nombre = Nombre.Text;
                 if (_editorial.IdEditorial != 0)
                 {
                     _ctrEditorial.Update(_editorial);
@@ -52,68 +47,64 @@ namespace Vista
                 else
                 {
                     _ctrEditorial.Add(_editorial);
-                }                
-                this.ShowMessage();
-                this.editorialBindingSource.DataSource = _ctrEditorial.GetAll();
-                
+                }
+                ShowMessage();
+                editorialBindingSource.DataSource = _ctrEditorial.GetAll();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);                
+                MessageBox.Show(@"Error: " + ex.Message);
             }
             finally
             {
-                this.Aceptar.Enabled = false;
-                this.Cancelar.Enabled = false;
-                this.Agregar.Enabled = true;
-                this.Eliminar.Enabled = true;
-                this.modificar.Enabled = true;
-                this.informacion.Enabled = false;
-                this.Nombre.Text = string.Empty;
+                Aceptar.Enabled = false;
+                Cancelar.Enabled = false;
+                Agregar.Enabled = true;
+                Eliminar.Enabled = true;
+                modificar.Enabled = true;
+                informacion.Enabled = false;
+                Nombre.Text = string.Empty;
             }
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
         {
-            this.Aceptar.Enabled = false;
-            this.Cancelar.Enabled = false;
-            this.Agregar.Enabled = true;
-            this.Eliminar.Enabled = true;
-            this.modificar.Enabled = true;
-            this.informacion.Enabled = false;
-            this.Nombre.Text = string.Empty;
+            Aceptar.Enabled = false;
+            Cancelar.Enabled = false;
+            Agregar.Enabled = true;
+            Eliminar.Enabled = true;
+            modificar.Enabled = true;
+            informacion.Enabled = false;
+            Nombre.Text = string.Empty;
         }
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
-            if (editorialBindingSource.Current != null)
-            {
-                _ctrEditorial.Remove((Modelo.Editorial)this.editorialBindingSource.Current);
-                this.ShowMessage();
-                this.editorialBindingSource.DataSource = _ctrEditorial.GetAll();
-            }
+            if (editorialBindingSource.Current == null) return;
+
+            _ctrEditorial.Remove((Modelo.Editorial) editorialBindingSource.Current);
+            ShowMessage();
+            editorialBindingSource.DataSource = _ctrEditorial.GetAll();
         }
 
         private void Modificar_Click(object sender, EventArgs e)
         {
-            if (this.editorialBindingSource.Current != null)
-            {
-                this.Aceptar.Enabled = true;
-                this.modificar.Enabled = false;
-                this.Cancelar.Enabled = true;
-                this.Agregar.Enabled = false;
-                this.Eliminar.Enabled = false;
-                this.informacion.Enabled = true;
-                _editorial = (Modelo.Editorial)(this.editorialBindingSource.Current);
-                this.Nombre.Text = _editorial.Nombre;
-            }
-            
+            if (editorialBindingSource.Current == null) return;
+
+            Aceptar.Enabled = true;
+            modificar.Enabled = false;
+            Cancelar.Enabled = true;
+            Agregar.Enabled = false;
+            Eliminar.Enabled = false;
+            informacion.Enabled = true;
+            _editorial = (Modelo.Editorial) editorialBindingSource.Current;
+            Nombre.Text = _editorial.Nombre;
         }
 
-        private void ShowMessage()
+        private static void ShowMessage()
         {
-            MessageBox.Show("Se ejecuto correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(@"Se ejecuto correctamente", @"Informacion", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
-
     }
 }

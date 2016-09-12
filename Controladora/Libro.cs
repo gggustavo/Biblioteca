@@ -1,20 +1,17 @@
 ﻿using Modelo;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Controladora
 {
     public class Libro
     {
-
         public void Add(Modelo.Libro entity)
         {
             using (var context = SingletonContext.GetContext())
             {
                 context.Libros.Add(entity);
-                context.SaveChanges();   
+                context.SaveChanges();
             }
         }
 
@@ -22,11 +19,10 @@ namespace Controladora
         {
             using (var context = SingletonContext.GetContext())
             {
-                var value = context.Libros.Where(_ => _.IdLibro == entity.IdLibro).FirstOrDefault();
+                var value = context.Libros.FirstOrDefault(_ => _.IdLibro == entity.IdLibro);
                 context.Libros.Remove(value);
-                context.SaveChanges();  
+                context.SaveChanges();
             }
-              
         }
 
         public void Update(Modelo.Libro entity)
@@ -36,16 +32,14 @@ namespace Controladora
                 context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
             }
-            
         }
 
         public List<Modelo.Libro> GetAll()
         {
-            using (var context = SingletonContext.GetContext()) 
+            using (var context = SingletonContext.GetContext())
             {
                 return context.Libros.Include("Autor").ToList();
-            }           
+            }
         }
-
     }
 }

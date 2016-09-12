@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Vista
 {
     public partial class Autor : Form
     {
-        Modelo.Autor _autor;
-        Controladora.Editorial _ctrEditorial = new Controladora.Editorial();
-        Controladora.Autor _ctrAutor = new Controladora.Autor();
+        private Modelo.Autor _autor;
+        private readonly Controladora.Editorial _ctrEditorial = new Controladora.Editorial();
+        private readonly Controladora.Autor _ctrAutor = new Controladora.Autor();
 
         public Autor()
         {
@@ -24,61 +18,59 @@ namespace Vista
         {
             base.OnLoad(e);
 
-            this.Aceptar.Enabled = false;
-            this.Cancelar.Enabled = false;
-            this.informacion.Enabled = false;
-            this.editorialBindingSource.DataSource = _ctrEditorial.GetAll();
-            this.autorBindingSource.DataSource = _ctrAutor.GetAll();
+            Aceptar.Enabled = false;
+            Cancelar.Enabled = false;
+            informacion.Enabled = false;
+            editorialBindingSource.DataSource = _ctrEditorial.GetAll();
+            autorBindingSource.DataSource = _ctrAutor.GetAll();
         }
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            this.Aceptar.Enabled = true;
-            this.Cancelar.Enabled = true;
-            this.modificar.Enabled = false;
-            this.Agregar.Enabled = false;
-            this.Eliminar.Enabled = false;
-            this.informacion.Enabled = true;
-            this.Nombre.Text = string.Empty;
+            Aceptar.Enabled = true;
+            Cancelar.Enabled = true;
+            modificar.Enabled = false;
+            Agregar.Enabled = false;
+            Eliminar.Enabled = false;
+            informacion.Enabled = true;
+            Nombre.Text = string.Empty;
 
             _autor = new Modelo.Autor();
         }
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
-            if (autorBindingSource.Current != null)
-            {
-                _ctrAutor.Remove((Modelo.Autor)this.autorBindingSource.Current);
-                this.ShowMessage();
-                this.autorBindingSource.DataSource = _ctrAutor.GetAll();
-            }
+            if (autorBindingSource.Current == null) return;
+
+            _ctrAutor.Remove((Modelo.Autor)autorBindingSource.Current);
+            ShowMessage();
+            autorBindingSource.DataSource = _ctrAutor.GetAll();
         }
 
-        private void ShowMessage()
+        private static void ShowMessage()
         {
-            MessageBox.Show("Se ejecuto correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(@"Se ejecuto correctamente", @"Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void modificar_Click(object sender, EventArgs e)
         {
-            if (this.autorBindingSource.Current != null)
-            {
-                this.Aceptar.Enabled = true;
-                this.modificar.Enabled = false;
-                this.Cancelar.Enabled = true;
-                this.Agregar.Enabled = false;
-                this.Eliminar.Enabled = false;
-                this.informacion.Enabled = true;
-                _autor = (Modelo.Autor)(this.autorBindingSource.Current);
-                this.Nombre.Text = _autor.Nombre;
-            }
+            if (autorBindingSource.Current == null) return;
+
+            Aceptar.Enabled = true;
+            modificar.Enabled = false;
+            Cancelar.Enabled = true;
+            Agregar.Enabled = false;
+            Eliminar.Enabled = false;
+            informacion.Enabled = true;
+            _autor = (Modelo.Autor)autorBindingSource.Current;
+            Nombre.Text = _autor.Nombre;
         }
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
             try
             {
-                _autor.Nombre = this.Nombre.Text;
+                _autor.Nombre = Nombre.Text;
                 _autor.IdEditorial = ((Modelo.Editorial)editorialBindingSource.Current).IdEditorial;
                 if (_autor.IdAutor != 0)
                 {
@@ -88,35 +80,35 @@ namespace Vista
                 {
                     _ctrAutor.Add(_autor);
                 }
-                this.ShowMessage();
-                this.autorBindingSource.DataSource = _ctrAutor.GetAll();
+                ShowMessage();
+                autorBindingSource.DataSource = _ctrAutor.GetAll();
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(@"Error: " + ex.Message);
             }
             finally
             {
-                this.Aceptar.Enabled = false;
-                this.Cancelar.Enabled = false;
-                this.Agregar.Enabled = true;
-                this.Eliminar.Enabled = true;
-                this.modificar.Enabled = true;
-                this.informacion.Enabled = false;
-                this.Nombre.Text = string.Empty;
+                Aceptar.Enabled = false;
+                Cancelar.Enabled = false;
+                Agregar.Enabled = true;
+                Eliminar.Enabled = true;
+                modificar.Enabled = true;
+                informacion.Enabled = false;
+                Nombre.Text = string.Empty;
             }
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
         {
-            this.Aceptar.Enabled = false;
-            this.Cancelar.Enabled = false;
-            this.Agregar.Enabled = true;
-            this.Eliminar.Enabled = true;
-            this.modificar.Enabled = true;
-            this.informacion.Enabled = false;
-            this.Nombre.Text = string.Empty;
+            Aceptar.Enabled = false;
+            Cancelar.Enabled = false;
+            Agregar.Enabled = true;
+            Eliminar.Enabled = true;
+            modificar.Enabled = true;
+            informacion.Enabled = false;
+            Nombre.Text = string.Empty;
         }
     }
 }

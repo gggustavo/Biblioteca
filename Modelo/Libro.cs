@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Modelo
+﻿namespace Modelo
 {
-   public class Libro
+    public class Libro
     {
         public int IdLibro { get; set; }
         public string isbn { get; set; }

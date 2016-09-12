@@ -1,15 +1,11 @@
 ﻿using SimpleInjector;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
 
 namespace Modelo
 {
-    public class SingletonContext
+    public static class SingletonContext
     {
-        private static Container Container = null;
+        private static Container _container = null;
 
         public static void CreateInstance()
         {
@@ -18,16 +14,15 @@ namespace Modelo
 
         private static void Bootstrap()
         {
-            if (Container == null)
-            {
-                Container = new Container();
-                Container.Register<DbContext, Context>();
-            }
+            if (_container != null) return;
+
+            _container = new Container();
+            _container.Register<DbContext, Context>();
         }
 
         public static Modelo.Context GetContext()
         {
-            var context = Container.GetInstance<Modelo.Context>();
+            var context = _container.GetInstance<Modelo.Context>();
             return context;
         }
     }
