@@ -136,18 +136,23 @@ namespace Vista
         }
 
         private void prestar_Click(object sender, EventArgs e)
-        {
-            // Validate before status Books
+        {                        
             if (libroBindingSource.Current == null) return;
 
-            var prestamo = new Prestamo
+            if (_ctrLibro.IsAvailable(((Modelo.Libro) libroBindingSource.Current).IdLibro))
+                MessageBox.Show(@"Libro prestado", @"Informacion", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            else
             {
-                Libro = (Modelo.Libro) libroBindingSource.Current,
-                Estado = true
-            };
+                var prestamo = new Prestamo
+                {
+                    Libro = (Modelo.Libro)libroBindingSource.Current,
+                    Estado = true
+                };
 
-            _ctrPrestamo.Add(prestamo);
-            ShowMessage();
+                _ctrPrestamo.Add(prestamo);
+                ShowMessage();
+            }
+            libroBindingSource.DataSource = _ctrLibro.GetAll();            
         }
     }
 }

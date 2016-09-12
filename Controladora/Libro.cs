@@ -41,5 +41,12 @@ namespace Controladora
                 return context.Libros.Include("Autor").Include("Prestamo").ToList();
             }
         }
+
+        public bool IsAvailable(int idLibro)
+        {
+            var context = SingletonContext.GetContext();
+            var libro = context.Prestamos.FirstOrDefault(_ => _.IdLibro == idLibro);
+            return libro != null && libro.Estado;
+        }
     }
 }
