@@ -10,5 +10,7 @@
 
         public int IdAutor { get; set; }
         public Autor Autor { get; set; }
+
+        public Prestamo Prestamo { get; set; }
     }
 }

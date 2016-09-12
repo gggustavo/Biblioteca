@@ -38,7 +38,7 @@ namespace Controladora
         {
             using (var context = SingletonContext.GetContext())
             {
-                return context.Libros.Include("Autor").ToList();
+                return context.Libros.Include("Autor").Include("Prestamo").ToList();
             }
         }
     }

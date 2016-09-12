@@ -24,11 +24,16 @@ namespace Modelo
 
             modelBuilder.Entity<Libro>().HasRequired(_ => _.Autor);
             modelBuilder.Entity<Autor>().HasRequired(_ => _.Editorial);
+
+            modelBuilder.Entity<Prestamo>().HasKey(_ => _.IdPrestamo)
+                                           .HasRequired(_ => _.Libro);
+            
         }
 
 
         public DbSet<Libro> Libros { get; set; }
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Editorial> Editoriales { get; set; }
+        public DbSet<Prestamo> Prestamos { get; set; }
     }
 }
