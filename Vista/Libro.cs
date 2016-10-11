@@ -154,5 +154,10 @@ namespace Vista
             }
             libroBindingSource.DataSource = _ctrLibro.GetAll();            
         }
+
+        private void buscar_Click(object sender, EventArgs e)
+        {
+            libroBindingSource.DataSource = _ctrLibro.GetAllByFilter(filtroisbn.Text, filtroTitulo.Text);
+        }
     }
 }

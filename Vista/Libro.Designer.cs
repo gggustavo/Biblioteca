@@ -48,17 +48,24 @@
             this.Titulo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.libroBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.prestar = new System.Windows.Forms.Button();
             this.isbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libroBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.prestar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.filtroTitulo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.filtroisbn = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.buscar = new System.Windows.Forms.Button();
             this.informacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // modificar
@@ -129,9 +136,9 @@
             this.informacion.Controls.Add(this.label3);
             this.informacion.Controls.Add(this.Titulo);
             this.informacion.Controls.Add(this.label1);
-            this.informacion.Location = new System.Drawing.Point(12, 76);
+            this.informacion.Location = new System.Drawing.Point(12, 138);
             this.informacion.Name = "informacion";
-            this.informacion.Size = new System.Drawing.Size(520, 138);
+            this.informacion.Size = new System.Drawing.Size(520, 132);
             this.informacion.TabIndex = 24;
             this.informacion.TabStop = false;
             this.informacion.Text = "Informacion";
@@ -241,26 +248,10 @@
             this.autorDataGridViewTextBoxColumn,
             this.Prestamo});
             this.dataGridView1.DataSource = this.libroBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 220);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 276);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(520, 257);
+            this.dataGridView1.Size = new System.Drawing.Size(520, 201);
             this.dataGridView1.TabIndex = 6;
-            // 
-            // libroBindingSource
-            // 
-            this.libroBindingSource.DataSource = typeof(Modelo.Libro);
-            // 
-            // prestar
-            // 
-            this.prestar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("prestar.BackgroundImage")));
-            this.prestar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.prestar.Location = new System.Drawing.Point(215, 12);
-            this.prestar.Name = "prestar";
-            this.prestar.Size = new System.Drawing.Size(62, 47);
-            this.prestar.TabIndex = 25;
-            this.prestar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.prestar.UseVisualStyleBackColor = true;
-            this.prestar.Click += new System.EventHandler(this.prestar_Click);
             // 
             // isbnDataGridViewTextBoxColumn
             // 
@@ -297,11 +288,84 @@
             this.Prestamo.Name = "Prestamo";
             this.Prestamo.Width = 80;
             // 
+            // libroBindingSource
+            // 
+            this.libroBindingSource.DataSource = typeof(Modelo.Libro);
+            // 
+            // prestar
+            // 
+            this.prestar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("prestar.BackgroundImage")));
+            this.prestar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.prestar.Location = new System.Drawing.Point(215, 12);
+            this.prestar.Name = "prestar";
+            this.prestar.Size = new System.Drawing.Size(62, 47);
+            this.prestar.TabIndex = 25;
+            this.prestar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.prestar.UseVisualStyleBackColor = true;
+            this.prestar.Click += new System.EventHandler(this.prestar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buscar);
+            this.groupBox1.Controls.Add(this.filtroisbn);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.filtroTitulo);
+            this.groupBox1.Location = new System.Drawing.Point(12, 77);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(520, 55);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filtros";
+            // 
+            // filtroTitulo
+            // 
+            this.filtroTitulo.Location = new System.Drawing.Point(270, 22);
+            this.filtroTitulo.Name = "filtroTitulo";
+            this.filtroTitulo.Size = new System.Drawing.Size(144, 20);
+            this.filtroTitulo.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(232, 25);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(33, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Titulo";
+            // 
+            // filtroisbn
+            // 
+            this.filtroisbn.Location = new System.Drawing.Point(68, 22);
+            this.filtroisbn.Name = "filtroisbn";
+            this.filtroisbn.Size = new System.Drawing.Size(154, 20);
+            this.filtroisbn.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(30, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "ISBN";
+            // 
+            // buscar
+            // 
+            this.buscar.Location = new System.Drawing.Point(439, 22);
+            this.buscar.Name = "buscar";
+            this.buscar.Size = new System.Drawing.Size(75, 23);
+            this.buscar.TabIndex = 14;
+            this.buscar.Text = "Buscar";
+            this.buscar.UseVisualStyleBackColor = true;
+            this.buscar.Click += new System.EventHandler(this.buscar_Click);
+            // 
             // Libro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 489);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.prestar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.informacion);
@@ -319,6 +383,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.autorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -350,5 +416,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn autorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prestamo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button buscar;
+        private System.Windows.Forms.TextBox filtroisbn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox filtroTitulo;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Modelo;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Controladora
 {
@@ -47,6 +48,27 @@ namespace Controladora
             var context = SingletonContext.GetContext();
             var libro = context.Prestamos.FirstOrDefault(_ => _.IdLibro == idLibro);
             return libro != null && libro.Estado;
+        }
+
+        public IList<Modelo.Libro> GetAllByFilter(string isbn, string titulo) 
+        {
+            if (string.IsNullOrEmpty(isbn) && string.IsNullOrEmpty(titulo)) return SingletonContext.GetContext().Libros.Include("Autor").Include("Prestamo").ToList();
+            
+            Expression<System.Func<Modelo.Libro, bool>> predicateIsbn = libro => libro.isbn == isbn;
+            Expression<System.Func<Modelo.Libro, bool>> predicateTitulo = libro => libro.Titulo == titulo;
+            Expression<System.Func<Modelo.Libro, bool>> predicateFinal;
+            
+            if (!string.IsNullOrEmpty(isbn)) {
+                predicateIsbn.And(predicateTitulo);
+                predicateFinal = predicateIsbn;
+            }
+            else
+                predicateFinal = predicateTitulo;
+            
+            var context = SingletonContext.GetContext();
+            var libros = context.Libros.Where(predicateFinal).ToList();
+
+            return libros;
         }
     }
 }
