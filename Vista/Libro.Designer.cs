@@ -56,11 +56,12 @@
             this.libroBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.prestar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.filtroTitulo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.buscar = new System.Windows.Forms.Button();
             this.filtroisbn = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.buscar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.filtroTitulo = new System.Windows.Forms.TextBox();
+            this.reporte = new System.Windows.Forms.Button();
             this.informacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -71,9 +72,10 @@
             // modificar
             // 
             this.modificar.Image = ((System.Drawing.Image)(resources.GetObject("modificar.Image")));
-            this.modificar.Location = new System.Drawing.Point(147, 12);
+            this.modificar.Location = new System.Drawing.Point(220, 18);
+            this.modificar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.modificar.Name = "modificar";
-            this.modificar.Size = new System.Drawing.Size(62, 47);
+            this.modificar.Size = new System.Drawing.Size(93, 72);
             this.modificar.TabIndex = 3;
             this.modificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.modificar.UseVisualStyleBackColor = true;
@@ -82,9 +84,10 @@
             // Cancelar
             // 
             this.Cancelar.Image = ((System.Drawing.Image)(resources.GetObject("Cancelar.Image")));
-            this.Cancelar.Location = new System.Drawing.Point(470, 12);
+            this.Cancelar.Location = new System.Drawing.Point(705, 18);
+            this.Cancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Cancelar.Name = "Cancelar";
-            this.Cancelar.Size = new System.Drawing.Size(62, 47);
+            this.Cancelar.Size = new System.Drawing.Size(93, 72);
             this.Cancelar.TabIndex = 5;
             this.Cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Cancelar.UseVisualStyleBackColor = true;
@@ -93,9 +96,10 @@
             // Aceptar
             // 
             this.Aceptar.Image = ((System.Drawing.Image)(resources.GetObject("Aceptar.Image")));
-            this.Aceptar.Location = new System.Drawing.Point(402, 12);
+            this.Aceptar.Location = new System.Drawing.Point(603, 18);
+            this.Aceptar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Aceptar.Name = "Aceptar";
-            this.Aceptar.Size = new System.Drawing.Size(62, 47);
+            this.Aceptar.Size = new System.Drawing.Size(93, 72);
             this.Aceptar.TabIndex = 4;
             this.Aceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Aceptar.UseVisualStyleBackColor = true;
@@ -104,9 +108,10 @@
             // Eliminar
             // 
             this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
-            this.Eliminar.Location = new System.Drawing.Point(80, 12);
+            this.Eliminar.Location = new System.Drawing.Point(120, 18);
+            this.Eliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Size = new System.Drawing.Size(62, 47);
+            this.Eliminar.Size = new System.Drawing.Size(93, 72);
             this.Eliminar.TabIndex = 2;
             this.Eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Eliminar.UseVisualStyleBackColor = true;
@@ -116,9 +121,10 @@
             // 
             this.Agregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Agregar.BackgroundImage")));
             this.Agregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Agregar.Location = new System.Drawing.Point(12, 12);
+            this.Agregar.Location = new System.Drawing.Point(18, 18);
+            this.Agregar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Agregar.Name = "Agregar";
-            this.Agregar.Size = new System.Drawing.Size(62, 47);
+            this.Agregar.Size = new System.Drawing.Size(93, 72);
             this.Agregar.TabIndex = 1;
             this.Agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Agregar.UseVisualStyleBackColor = true;
@@ -136,29 +142,33 @@
             this.informacion.Controls.Add(this.label3);
             this.informacion.Controls.Add(this.Titulo);
             this.informacion.Controls.Add(this.label1);
-            this.informacion.Location = new System.Drawing.Point(12, 138);
+            this.informacion.Location = new System.Drawing.Point(18, 212);
+            this.informacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.informacion.Name = "informacion";
-            this.informacion.Size = new System.Drawing.Size(520, 132);
+            this.informacion.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.informacion.Size = new System.Drawing.Size(780, 203);
             this.informacion.TabIndex = 24;
             this.informacion.TabStop = false;
             this.informacion.Text = "Informacion";
             // 
             // precio
             // 
-            this.precio.Location = new System.Drawing.Point(242, 75);
+            this.precio.Location = new System.Drawing.Point(363, 115);
+            this.precio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.precio.Mask = "99999";
             this.precio.Name = "precio";
-            this.precio.Size = new System.Drawing.Size(36, 20);
+            this.precio.Size = new System.Drawing.Size(52, 26);
             this.precio.TabIndex = 8;
             this.precio.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.precio.ValidatingType = typeof(int);
             // 
             // paginas
             // 
-            this.paginas.Location = new System.Drawing.Point(69, 75);
+            this.paginas.Location = new System.Drawing.Point(104, 115);
+            this.paginas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.paginas.Mask = "99999";
             this.paginas.Name = "paginas";
-            this.paginas.Size = new System.Drawing.Size(36, 20);
+            this.paginas.Size = new System.Drawing.Size(52, 26);
             this.paginas.TabIndex = 7;
             this.paginas.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.paginas.ValidatingType = typeof(int);
@@ -166,34 +176,38 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(199, 79);
+            this.label5.Location = new System.Drawing.Point(298, 122);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.Size = new System.Drawing.Size(53, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Precio";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 79);
+            this.label4.Location = new System.Drawing.Point(26, 122);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.Size = new System.Drawing.Size(66, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Paginas";
             // 
             // isbn
             // 
-            this.isbn.Location = new System.Drawing.Point(68, 23);
+            this.isbn.Location = new System.Drawing.Point(102, 35);
+            this.isbn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.isbn.Name = "isbn";
-            this.isbn.Size = new System.Drawing.Size(279, 20);
+            this.isbn.Size = new System.Drawing.Size(416, 26);
             this.isbn.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 26);
+            this.label2.Location = new System.Drawing.Point(45, 40);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.Size = new System.Drawing.Size(47, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "ISBN";
             // 
@@ -202,9 +216,10 @@
             this.autores.DataSource = this.autorBindingSource;
             this.autores.DisplayMember = "Nombre";
             this.autores.FormattingEnabled = true;
-            this.autores.Location = new System.Drawing.Point(68, 101);
+            this.autores.Location = new System.Drawing.Point(102, 155);
+            this.autores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.autores.Name = "autores";
-            this.autores.Size = new System.Drawing.Size(121, 21);
+            this.autores.Size = new System.Drawing.Size(180, 28);
             this.autores.TabIndex = 9;
             this.autores.ValueMember = "IdEditorial";
             // 
@@ -215,25 +230,28 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 104);
+            this.label3.Location = new System.Drawing.Point(44, 160);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(48, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Autor";
             // 
             // Titulo
             // 
-            this.Titulo.Location = new System.Drawing.Point(68, 49);
+            this.Titulo.Location = new System.Drawing.Point(102, 75);
+            this.Titulo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(279, 20);
+            this.Titulo.Size = new System.Drawing.Size(416, 26);
             this.Titulo.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 52);
+            this.label1.Location = new System.Drawing.Point(44, 80);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Titulo";
             // 
@@ -248,9 +266,10 @@
             this.autorDataGridViewTextBoxColumn,
             this.Prestamo});
             this.dataGridView1.DataSource = this.libroBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 276);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 425);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(520, 201);
+            this.dataGridView1.Size = new System.Drawing.Size(780, 309);
             this.dataGridView1.TabIndex = 6;
             // 
             // isbnDataGridViewTextBoxColumn
@@ -296,9 +315,10 @@
             // 
             this.prestar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("prestar.BackgroundImage")));
             this.prestar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.prestar.Location = new System.Drawing.Point(215, 12);
+            this.prestar.Location = new System.Drawing.Point(322, 18);
+            this.prestar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.prestar.Name = "prestar";
-            this.prestar.Size = new System.Drawing.Size(62, 47);
+            this.prestar.Size = new System.Drawing.Size(93, 72);
             this.prestar.TabIndex = 25;
             this.prestar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.prestar.UseVisualStyleBackColor = true;
@@ -311,60 +331,81 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.filtroTitulo);
-            this.groupBox1.Location = new System.Drawing.Point(12, 77);
+            this.groupBox1.Location = new System.Drawing.Point(18, 118);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(520, 55);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(780, 85);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
-            // filtroTitulo
-            // 
-            this.filtroTitulo.Location = new System.Drawing.Point(270, 22);
-            this.filtroTitulo.Name = "filtroTitulo";
-            this.filtroTitulo.Size = new System.Drawing.Size(144, 20);
-            this.filtroTitulo.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(232, 25);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Titulo";
-            // 
-            // filtroisbn
-            // 
-            this.filtroisbn.Location = new System.Drawing.Point(68, 22);
-            this.filtroisbn.Name = "filtroisbn";
-            this.filtroisbn.Size = new System.Drawing.Size(154, 20);
-            this.filtroisbn.TabIndex = 12;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(30, 25);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "ISBN";
-            // 
             // buscar
             // 
-            this.buscar.Location = new System.Drawing.Point(439, 22);
+            this.buscar.Location = new System.Drawing.Point(658, 34);
+            this.buscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buscar.Name = "buscar";
-            this.buscar.Size = new System.Drawing.Size(75, 23);
+            this.buscar.Size = new System.Drawing.Size(112, 35);
             this.buscar.TabIndex = 14;
             this.buscar.Text = "Buscar";
             this.buscar.UseVisualStyleBackColor = true;
             this.buscar.Click += new System.EventHandler(this.buscar_Click);
             // 
+            // filtroisbn
+            // 
+            this.filtroisbn.Location = new System.Drawing.Point(102, 34);
+            this.filtroisbn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.filtroisbn.Name = "filtroisbn";
+            this.filtroisbn.Size = new System.Drawing.Size(229, 26);
+            this.filtroisbn.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(45, 38);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 20);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "ISBN";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(348, 38);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 20);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Titulo";
+            // 
+            // filtroTitulo
+            // 
+            this.filtroTitulo.Location = new System.Drawing.Point(405, 34);
+            this.filtroTitulo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.filtroTitulo.Name = "filtroTitulo";
+            this.filtroTitulo.Size = new System.Drawing.Size(214, 26);
+            this.filtroTitulo.TabIndex = 7;
+            // 
+            // reporte
+            // 
+            this.reporte.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("reporte.BackgroundImage")));
+            this.reporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.reporte.Location = new System.Drawing.Point(423, 18);
+            this.reporte.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.reporte.Name = "reporte";
+            this.reporte.Size = new System.Drawing.Size(93, 72);
+            this.reporte.TabIndex = 27;
+            this.reporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.reporte.UseVisualStyleBackColor = true;
+            this.reporte.Click += new System.EventHandler(this.reporte_Click);
+            // 
             // Libro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 489);
+            this.ClientSize = new System.Drawing.Size(846, 752);
+            this.Controls.Add(this.reporte);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.prestar);
             this.Controls.Add(this.dataGridView1);
@@ -375,6 +416,7 @@
             this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.Agregar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Libro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Libro";
@@ -422,5 +464,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox filtroTitulo;
+        private System.Windows.Forms.Button reporte;
     }
 }

@@ -159,5 +159,11 @@ namespace Vista
         {
             libroBindingSource.DataSource = _ctrLibro.GetAllByFilter(filtroisbn.Text, filtroTitulo.Text);
         }
+
+        private void reporte_Click(object sender, EventArgs e)
+        {
+            var form = new ReporteLibro();
+            form.ShowDialog();
+        }
     }
 }
