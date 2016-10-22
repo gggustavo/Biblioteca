@@ -5,6 +5,20 @@ This app called Library is very simple
 * EntityFramework use Code Fist
 * MVC (Model- View -Controller) introducction
 * Simple Injector
+* Report RDLC
+* Stored Procedure
+	CREATE PROCEDURE [dbo].[GetLibroById]
+	@idLibro int 
+	 AS
+	 SELECT IdLibro,
+		    isbn,
+			Titulo,
+			Precio,
+			Paginas,
+			Precio,
+			IdAutor
+	  FROM Libro 
+	  WHERE IdLibro = @idLibro
 
 
 Steps
@@ -18,3 +32,4 @@ Code First Migrations has two primary commands that you are going to become fami
 **Update-Database** will apply any pending migrations to the database
 
 For more information about EntityFramework visit: https://msdn.microsoft.com/en-us/data/ee712907.aspx
+
