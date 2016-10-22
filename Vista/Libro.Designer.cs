@@ -342,12 +342,15 @@
             // 
             // buscar
             // 
-            this.buscar.Location = new System.Drawing.Point(658, 34);
+            this.buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buscar.Image = ((System.Drawing.Image)(resources.GetObject("buscar.Image")));
+            this.buscar.Location = new System.Drawing.Point(650, 34);
             this.buscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buscar.Name = "buscar";
-            this.buscar.Size = new System.Drawing.Size(112, 35);
+            this.buscar.Size = new System.Drawing.Size(120, 35);
             this.buscar.TabIndex = 14;
-            this.buscar.Text = "Buscar";
+            this.buscar.Text = "    Buscar";
+            this.buscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buscar.UseVisualStyleBackColor = true;
             this.buscar.Click += new System.EventHandler(this.buscar_Click);
             // 

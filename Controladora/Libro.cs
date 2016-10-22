@@ -1,7 +1,11 @@
 ﻿using Modelo;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
+using Controladora.Extension;
 
 namespace Controladora
 {
@@ -16,14 +20,30 @@ namespace Controladora
             }
         }
 
-        public void Remove(Modelo.Libro entity)
+        public void Remove(int idLibro)
         {
             using (var context = SingletonContext.GetContext())
             {
-                var value = context.Libros.FirstOrDefault(_ => _.IdLibro == entity.IdLibro);
-                context.Libros.Remove(value);
+                var value = GetValueToRemove(idLibro, context);
+                context.Entry(value).State = EntityState.Deleted;              
                 context.SaveChanges();
             }
+        }
+
+        private static Modelo.Libro GetValueToRemove(int idLibro, Context context)
+        {
+            //Use Store Procedure
+            var idParameter = new SqlParameter
+            {
+                ParameterName = "idLibro",
+                Value = idLibro,
+                Direction = ParameterDirection.Input
+            };
+
+            var value = context.Database
+                                .SqlQuery<Modelo.Libro>("exec GetLibroById @idLibro ", idParameter)
+                                .SingleOrDefault();
+            return value;
         }
 
         public void Update(Modelo.Libro entity)

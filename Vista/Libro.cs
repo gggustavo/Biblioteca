@@ -48,7 +48,7 @@ namespace Vista
         {
             if (libroBindingSource.Current == null) return;
 
-            _ctrLibro.Remove((Modelo.Libro) libroBindingSource.Current);
+            _ctrLibro.Remove(((Modelo.Libro) libroBindingSource.Current).IdLibro);
             ShowMessage();
             libroBindingSource.DataSource = _ctrLibro.GetAll();
         }
