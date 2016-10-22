@@ -8,13 +8,17 @@ This app called Library is very simple
 * Report RDLC
 * Stored Procedure
 	CREATE PROCEDURE [dbo].[GetLibroById]
-		@idLibro int
-	AS
-		SELECT  isbn,
-				Titulo,
-				Precio
-		FROM Libro
-		WHERE IdLibro = @idLibro
+	@idLibro int 
+	 AS
+	 SELECT IdLibro,
+		    isbn,
+			Titulo,
+			Precio,
+			Paginas,
+			Precio,
+			IdAutor
+	  FROM Libro 
+	  WHERE IdLibro = @idLibro
 
 
 Steps
