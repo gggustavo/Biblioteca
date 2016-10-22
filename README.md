@@ -7,7 +7,6 @@ This app called Library is very simple
 * Simple Injector
 * Report RDLC
 * Stored Procedure
-
 	CREATE PROCEDURE [dbo].[GetLibroById]
 		@idLibro int
 	AS
