@@ -18,3 +18,14 @@ Code First Migrations has two primary commands that you are going to become fami
 **Update-Database** will apply any pending migrations to the database
 
 For more information about EntityFramework visit: https://msdn.microsoft.com/en-us/data/ee712907.aspx
+
+Stored Procedure
+
+CREATE PROCEDURE [dbo].[GetLibroById]
+	@idLibro int
+AS
+	SELECT  isbn,
+			Titulo,
+			Precio
+	FROM Libro
+	WHERE IdLibro = @idLibro
