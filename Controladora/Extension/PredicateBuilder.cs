@@ -8,10 +8,10 @@ namespace Controladora.Extension
     {
         public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> a, Expression<Func<T, bool>> b)
         {
-            var p = a.Parameters[0];
+            ParameterExpression p = a.Parameters[0];
 
-            var visitor = new SubstExpressionVisitor();
-            visitor.Subst[b.Parameters[0]] = p;
+            SubstExpressionVisitor visitor = new SubstExpressionVisitor();
+            visitor.subst[b.Parameters[0]] = p;
 
             Expression body = Expression.AndAlso(a.Body, visitor.Visit(b.Body));
             return Expression.Lambda<Func<T, bool>>(body, p);
@@ -22,20 +22,23 @@ namespace Controladora.Extension
 
             ParameterExpression p = a.Parameters[0];
 
-            SubstExpressionVisitor visitor = new SubstExpressionVisitor {Subst = {[b.Parameters[0]] = p}};
+            SubstExpressionVisitor visitor = new SubstExpressionVisitor();
+            visitor.subst[b.Parameters[0]] = p;
 
             Expression body = Expression.OrElse(a.Body, visitor.Visit(b.Body));
             return Expression.Lambda<Func<T, bool>>(body, p);
         }
 
-        private class SubstExpressionVisitor : ExpressionVisitor
+        internal class SubstExpressionVisitor : System.Linq.Expressions.ExpressionVisitor
         {
-            public readonly Dictionary<Expression, Expression> Subst = new Dictionary<Expression, Expression>();
+            public Dictionary<Expression, Expression> subst = new Dictionary<Expression, Expression>();
 
             protected override Expression VisitParameter(ParameterExpression node)
             {
                 Expression newValue;
-                return Subst.TryGetValue(node, out newValue) ? newValue : node;
+                if (subst.TryGetValue(node, out newValue)) return newValue;
+
+                return node;
             }
         }
     }
